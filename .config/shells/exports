@@ -1,0 +1,6 @@
+#export GOPATH="$HOME/go"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.local/bin/userscripts"
+export EDITOR="$(which nvim)"
+#export TERM="xterm"
+#export MAKEFLAGS="-j17 -l16"
+#export QT_QPA_PLATFORMTHEME="qt5ct"

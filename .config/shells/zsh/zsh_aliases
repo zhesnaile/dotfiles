@@ -1,0 +1,43 @@
+# Bring some colour
+alias grep='grep --color=auto'
+alias diff='diff --color=auto'
+alias ip='ip -color=auto'
+alias ls='ls --color=auto'
+
+# Common aliases
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ll'
+
+# Destroy the Child
+alias nuke="rm -rf"
+
+# watch data left to sync
+alias dirties="watch -d grep -e Dirty: -e Writeback: /proc/meminfo"
+
+# Set Editor
+alias e='$EDITOR'
+alias v='$EDITOR'
+
+# Comfy sytemctl
+alias sctl="systemctl"
+alias ssctl="sudo systemctl"
+
+# vim -> vvim
+if command -v vim >/dev/null; then
+  alias vvim="$(which vim)"
+fi
+
+# nvim -> vim
+if command -v nvim >/dev/null; then
+  alias vim="$(which nvim)"
+fi
+
+# lock screen
+alias glock="i3lock -ti ~/Pictures/Wallpapers/archwallthird004.png"
+
+
+#disable smt
+alias smt-off="echo off | sudo tee /sys/devices/system/cpu/smt/control"
+#enable smt
+alias smt-on="echo on | sudo tee /sys/devices/system/cpu/smt/control"
