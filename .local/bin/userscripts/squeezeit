@@ -1,3 +1,3 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 mksquashfs "$1" "$2" -b 1M -comp zstd -Xcompression-level 22

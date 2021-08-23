@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 #check for sudo permissions
 if [ $EUID != 0 ]; then
