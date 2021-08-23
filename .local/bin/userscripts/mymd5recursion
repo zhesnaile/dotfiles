@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ -z "$1" ] || [ -z "$2" ]; then
+    find -type f -exec md5sum '{}' \;
+else
+    if [ $1 == "-o" ]; then
+        find -type f \( -not -name $2 \) -exec md5sum '{}' \; > $2
+    fi
+fi
+    
+
+
