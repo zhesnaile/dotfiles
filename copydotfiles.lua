@@ -6,24 +6,26 @@
 
 -- list of programs to copy the config from.
 -- comment or uncomment the ones you need.
+-- PLEASE DO NOT ADD "fonts" AS THIS ISN'T HANDLED PROPERLY AND THE SCRIPT MIGHT DELETED YOUR ALREADY INSTALLED FONTS IF YOU DO SO.
+-- USE THE "grab_fonts" VARIABLE INSTEAD.
 local config_list = {
   "awesome",
   "kitty",
   "nvim",
   "picom",
   "shells",
---  "scripts",
---  "fonts",
+  "scripts",
 }
 
--- might add separate variables for fonts and scripts and remove them from the config list.
-
+-- Set to 1 to grab and unpack Fira Code NF in $HOME/.local/share/fonts
+-- relies on wget and unzip
+local grab_fonts = 0;
 
 -----------------------------------------------------------------------
 -- SCRIPT BEGINS HERE
 -----------------------------------------------------------------------
 
-local home =  os.getenv("HOME")
+local home = os.getenv("HOME")
 local backup_dir = home .. "/.backup"
 
 local locations = {
@@ -36,57 +38,80 @@ local locations = {
   ["fonts"] = ".local/share/fonts",
 }
 
---[[
-TODO: modify the following loop to copy files using those paths.
-IMPORTANT: ADD CHECKS FOR FONTS AND SCRIPTS
---]]
+-- Moves Existing Dotfiles to $HOME/.backup
+local function make_backup()
 
--- for x, y in pairs(config_list) do print(locations[y]) end
-
-
-
----[[
--- Deletes $HOME/.backup and generates a new one
-local function generate_backup_dir()
+  -- Delete and create empty $HOME/.backup
   os.execute("rm -rf " .. backup_dir)
   os.execute("mkdir -p " .. backup_dir .. "/.local " .. backup_dir .. "/.config" )
-end
 
--- Copies existing files to the backup directory
-local function make_backup()
-    os.execute("cp -rv " .. backup_dir .. "")
+  -- Moves existing dotfiles to $HOME/.backup
+  for x, y in pairs(config_list)
+    do
+      -- ignores userscripts
+      if y ~= "scripts" then
+        os.execute("mv " .. home .. "/" .. locations[y]
+                    .. " " .. backup_dir .. "/" .. locations[y])
+      end
+
+  end
 end
 
 
 -- Copies dotfiles from this directory to their appropriate place in $HOME
 local function copy_dotfiles()
-  os.getenv()
+  for x, y in pairs(config_list)
+    do
+      os.execute("cp -rv " .. locations[y] .. " "
+                  .. home .. "/" .. locations[y])
+  end
+end
+
+
+-- Downloads and unpacks FiraCode NerdFont
+local function dl_font()
+  os.execute("wget "
+            .. "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip"
+            .. "; unzip FiraCode.zip -d "
+            .. home .. "/" .. locations["fonts"])
 end
 
 -- Calls three previous functions.
 local function start_process()
-  generate_backup_dir()
   make_backup()
   copy_dotfiles()
+
+  -- check if font was requested
+  if grab_fonts == 1
+    then dl_font()
+  end
+
 end
 
 
 -- If no "-y" flag has been specified, show this warning to prevent unwanted results.
 local function preemptive_warning()
-  io.write("Warning: your files will be moved to $HOME/.backup.\n\nIf $HOME/.backup already exists it will be deleted first.\n\nWrite YES in capital letters to continue:\n")
+
+  io.write("Warning: your files will be moved to $HOME/.backup.\n\n"
+          .. "If $HOME/.backup already exists it will be deleted first.\n\n"
+          .. "Write YES in capital letters to continue:\n")
+
   local confirmation = io.read("*line")
+
   if confirmation == "YES" then
-    io.write("\ncreating $HOME/.backup and moving files.\n(Use -y flag to skip this warning next time).\n")
+    io.write("\ncreating $HOME/.backup and moving files.\n"
+            .."(Use -y flag to skip this warning next time).\n")
     start_process()
   else
     io.write("No changes were made.\n")
   end
+
 end
 
 
 -- Start of the script, checks for "-y" flag, shows a warning if not found.
-if arg[1] == "-y"
-  then start_process()
-else preemptive_warning()
+if arg[1] == "-y" then
+  start_process()
+else
+  preemptive_warning()
 end
---]]
