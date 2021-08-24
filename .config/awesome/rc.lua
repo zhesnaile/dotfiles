@@ -83,7 +83,7 @@ awful.layout.layouts = {
 }
 -- }}}
 
-awful.spawn.with_shell("$HOME/.config/awesome/bin/autorun.sh")
+awful.spawn.with_shell("$HOME/.config/awesome/autorun.sh")
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
