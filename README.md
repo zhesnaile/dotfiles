@@ -11,3 +11,5 @@ Includes config files for:
  - [Kitty](https://sw.kovidgoyal.net/kitty/)
 
  - [Awesomewm](https://awesomewm.org/) 4.3
+
+And a series of [personal scripts](https://github.com/zhesnaile/dotfiles/tree/main/.local/bin/userscripts).
