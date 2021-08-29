@@ -63,7 +63,7 @@ local function copy_dotfiles()
   for x, y in pairs(config_list)
     do
       os.execute("cp -rv " .. locations[y] .. " "
-                  .. home .. "/" .. locations[y])
+                  .. home .. "/" .. locations)
   end
 end
 

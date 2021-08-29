@@ -41,3 +41,6 @@ alias glock="i3lock -ti ~/Pictures/Wallpapers/archwallthird004.png"
 alias smt-off="echo off | sudo tee /sys/devices/system/cpu/smt/control"
 #enable smt
 alias smt-on="echo on | sudo tee /sys/devices/system/cpu/smt/control"
+
+#compiler flags
+alias loud-gcc="gcc -Wall -Wextra -Werror -O2 -std=c99 -pedantic"

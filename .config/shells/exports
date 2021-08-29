@@ -1,5 +1,7 @@
 #export GOPATH="$HOME/go"
-export PATH="$PATH:$HOME/.local/bin:$HOME/.local/bin/userscripts"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.local/bin/userscripts:$HOME/.luarocks/bin"
+export LUA_PATH='/usr/share/lua/5.4/?.lua;/usr/share/lua/5.4/?/init.lua;/usr/lib/lua/5.4/?.lua;/usr/lib/lua/5.4/?/init.lua;./?.lua;./?/init.lua;/home/bali/.luarocks/share/lua/5.4/?.lua;/home/bali/.luarocks/share/lua/5.4/?/init.lua'
+export LUA_CPATH='/usr/lib/lua/5.4/?.so;/usr/lib/lua/5.4/loadall.so;./?.so;/home/bali/.luarocks/lib/lua/5.4/?.so'
 export EDITOR="$(which nvim)"
 #export TERM="xterm"
 #export MAKEFLAGS="-j17 -l16"
