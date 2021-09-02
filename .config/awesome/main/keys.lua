@@ -3,6 +3,7 @@ local gears = require("gears")
 local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
+local my_home = os.getenv("HOME")
 local M = {}
 
 -- Default Modkey.
@@ -85,10 +86,19 @@ M.globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
     -- i3lock
-    --awful.key({ "Mod1", "Shift" }, "l", function() awful.spawn("~/.local/bin/mylock.sh") end,
-    --	      {description = "lock the screen", group = "launcher"}),
+    awful.key({ modkey,         }, "Scroll_Lock", function () awful.spawn("i3lock -ti " .. my_home .. "/Pictures/Wallpapers/archwallthird004.png") end,
+               {description = "lock screen", group = "awesome"}),
+    -- Flameshot
+    awful.key({modkey,          }, "Print", function() awful.spawn("flameshot full -p " .. my_home .. "/Pictures/Screenshots -c") end,
+               {description = "full screenshot", group = "launcher"}),
+    awful.key({nil,          }, "Print", function() awful.spawn("flameshot gui") end,
+               {description = "full screenshot", group = "launcher"}),
+    -- Rofi
     awful.key({ modkey, 	  }, "d", function() awful.spawn("rofi -show") end,
 	      {description = "launch rofi", group = "launcher"}),
+    awful.key({ "Mod1", 	  }, "space", function() awful.spawn("rofi -show") end,
+	      {description = "launch rofi", group = "launcher"}),
+
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,

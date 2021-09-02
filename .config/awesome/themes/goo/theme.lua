@@ -7,7 +7,7 @@ local dpi = require("beautiful.xresources").apply_dpi
 
 -- Theme Definition {{{
 local theme = {}
-theme.dir = os.getenv("HOME").."/.config/awesome/themes/uwu/"
+theme.dir = os.getenv("HOME").."/.config/awesome/themes/goo/"
 
 -- Fonts
 theme.font = "FiraCode Nerd Font 9"
@@ -40,6 +40,7 @@ theme.bg_normal = '#1e222a'
 theme.bg_focus = '#121622'
 theme.bg_urgent = "#081218"
 theme.bg_light = '#2c3038'
+--theme.bg_systray = theme.clr.yellow
 theme.bg_systray = theme.bg_light
 
 theme.tasklist_bg_normal = '#181828'
@@ -57,7 +58,7 @@ theme.notification_fg = '#a6accd'
 theme.notification_bg = '#121622'
 theme.notification_opacity = 1
 
-theme.useless_gap   = dpi(0)
+theme.useless_gap   = dpi(5)
 theme.border_width  = dpi(1)
 theme.border_normal = "#000000"
 theme.border_focus  = "#ff79c6"

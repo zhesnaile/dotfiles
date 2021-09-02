@@ -1,7 +1,7 @@
 #!/usr/bin/env lua
-
+-- vim:fdm=marker
 -----------------------------------------------------------------------
--- SETTINGS
+-- SETTINGS {{{
 -----------------------------------------------------------------------
 
 -- list of programs to copy the config from.
@@ -13,6 +13,7 @@ local config_list = {
   "kitty",
   "nvim",
   "picom",
+  "rofi",
   "shells",
   "scripts",
 }
@@ -21,10 +22,13 @@ local config_list = {
 -- relies on wget and unzip
 local grab_fonts = 0;
 
+-- }}}
+
 -----------------------------------------------------------------------
--- SCRIPT BEGINS HERE
+-- SCRIPT BEGINS HERE {{{
 -----------------------------------------------------------------------
 
+-- some vars {{{
 local home = os.getenv("HOME")
 local backup_dir = home .. "/.backup"
 
@@ -33,10 +37,16 @@ local locations = {
   ["kitty"] = ".config/kitty",
   ["nvim"] = ".config/nvim",
   ["picom"] = ".config/picom",
+  ["rofi"] = ".config/rofi",
   ["shells"] = ".config/shells",
   ["scripts"] = ".local/bin/userscripts",
   ["fonts"] = ".local/share/fonts",
 }
+
+--}}}
+
+
+-- helper functions {{{
 
 -- Moves Existing Dotfiles to $HOME/.backup
 local function make_backup()
@@ -107,7 +117,7 @@ local function preemptive_warning()
   end
 
 end
-
+--}}}
 
 -- Start of the script, checks for "-y" flag, shows a warning if not found.
 if arg[1] == "-y" then
