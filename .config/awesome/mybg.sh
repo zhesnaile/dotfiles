@@ -1,1 +1,1 @@
-feh --no-fehbg --bg-fill '/home/bali/Pictures/Wallpapers/nikolai-edit.jpg'
+feh --no-fehbg --bg-fill $HOME/Pictures/Wallpapers/nikolai-edit.jpg
