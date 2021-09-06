@@ -68,20 +68,29 @@ function! WinMove(key)
     endif
 endfunction
 
+"create a window leftright
 nnoremap <silent> <C-h> :call WinMove('h')<CR>
 nnoremap <silent> <C-j> :call WinMove('j')<CR>
 nnoremap <silent> <C-k> :call WinMove('k')<CR>
 nnoremap <silent> <C-l> :call WinMove('l')<CR>
 
+"switch between opened windows
+nnoremap <Tab> <C-W>w
+nnoremap <S-Tab> <C-W>p
+
+"switch between tabs
+nnoremap <C-n> :tabnew<CR>
+nnoremap <silent> <C-Right> :tabnext<CR>
+nnoremap <silent> <C-Left> :tabprevious<CR>
+
 "nerdtree keybindings:
 nnoremap <C-t> :NERDTreeToggle <CR>
-nnoremap <C-n> :NERDTree <CR>
 nnoremap <C-f> :NERDTreeFind <CR>
 "END OF PLUGIN RELATED SETTINGS
 
 "example defaults for new projects
 set expandtab
 set tabstop=2
-set shiftwidth=2
+"set shiftwidth=2
 set foldmethod=syntax
 set fdm=marker
