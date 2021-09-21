@@ -80,8 +80,8 @@ nnoremap <S-Tab> <C-W>p
 
 "switch between tabs
 nnoremap <C-n> :tabnew<CR>
-nnoremap <silent> <C-Right> :tabnext<CR>
-nnoremap <silent> <C-Left> :tabprevious<CR>
+nnoremap <silent> H :tabprevious<CR>
+nnoremap <silent> L :tabnext<CR>
 
 "nerdtree keybindings:
 nnoremap <C-t> :NERDTreeToggle <CR>
@@ -91,6 +91,6 @@ nnoremap <C-f> :NERDTreeFind <CR>
 "example defaults for new projects
 set expandtab
 set tabstop=2
-"set shiftwidth=2
+set shiftwidth=2
 set foldmethod=syntax
 set fdm=marker

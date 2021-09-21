@@ -44,7 +44,7 @@ M.globalkeys = gears.table.join(
      awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%", false) end,
      {description = "raise volume", group = "media keys"}),
    awful.key({}, "XF86AudioMute", function ()
-     awful.util.spawn("toggle pactl set-sink-mute @DEFAULT_SINK@ toggle", false) end,
+     awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle", false) end,
      {description = "toggle mute", group = "media keys"}),
 
    -- Media Keys
