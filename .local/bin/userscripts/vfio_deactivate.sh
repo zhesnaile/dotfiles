@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ $EUID != 0 ]; then
+if [ $(id -u) != 0 ]; then
     sudo "$0" "$@"
     exit $?
 fi
