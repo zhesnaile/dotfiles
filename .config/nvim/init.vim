@@ -2,9 +2,9 @@
 " Check For Plug {{{
 " automated installation of vimplug if not installed
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
+	silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
 endif
 " }}}
 
@@ -80,16 +80,16 @@ let g:airline_theme='alduin'
 " WINDOWS {{{
 " Window Splitting
 function! WinMove(key)
-    let t:curwin = winnr()
-    exec "wincmd ".a:key
-    if (t:curwin == winnr())
-        if (match(a:key,'[jk]'))
-            wincmd v
-        else
-            wincmd s
-        endif
-        exec "wincmd ".a:key
-    endif
+	let t:curwin = winnr()
+	exec "wincmd ".a:key
+	if (t:curwin == winnr())
+		if (match(a:key,'[jk]'))
+			wincmd v
+		else
+			wincmd s
+		endif
+		exec "wincmd ".a:key
+	endif
 endfunction
 
 "create a window leftright
@@ -111,9 +111,9 @@ nnoremap <silent> L :tabnext<CR>
 "}}}
 
 " GENERAL BEHAVIOUR {{{
-set expandtab
-set tabstop=2
-set shiftwidth=2
+set noexpandtab
+set tabstop=4
+set shiftwidth=4
 set foldmethod=syntax
 set fdm=marker
 " }}}
