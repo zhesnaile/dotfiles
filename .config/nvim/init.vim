@@ -3,7 +3,7 @@
 " automated installation of vimplug if not installed
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 	silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
 endif
 " }}}
@@ -34,6 +34,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " marketplace needs to be installed with ':CocInstall coc-marketplace' instead
 " Plug 'fannheyward/coc-marketplace'
+" Vim_Go: Dababy, let's Go.
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Dracula_Theme: sweet smexy colours
+Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 "}}}
 
@@ -61,7 +65,7 @@ nnoremap <silent> <space>e :<C-u>CocList extensions<cr>
 " }}}
 
 " FZF BINDINGS {{{
-map ; :Files<CR>
+map <silent> ; :Files<CR>
 nmap <silent> <space>w :W<cr>
 " }}}
 " NERDTREE Bindings{{{
@@ -105,9 +109,32 @@ nnoremap <S-Tab> <C-W>p
 " }}}
 
 "TAB Bindings {{{
-nnoremap <C-n> :tabnew<CR>
+nnoremap <silent> <space>t :tabnew<CR>
 nnoremap <silent> H :tabprevious<CR>
 nnoremap <silent> L :tabnext<CR>
+"}}}
+
+" PMENU_COC_COLOURS {{{
+" a bit useless once I've set a theme.
+""" Customize colors
+"func! s:my_colors_setup() abort
+"    " this is an example
+"    hi Pmenu guibg=#d7e5dc gui=NONE
+"    hi PmenuSel guibg=#b7c7b7 gui=NONE
+"    hi PmenuSbar guibg=#bcbcbc
+"    hi PmenuThumb guibg=#585858
+"endfunc
+"
+"augroup colorscheme_coc_setup | au!
+"    au ColorScheme * call s:my_colors_setup()
+"augroup END
+
+" }}}
+
+" THEME SETTINGS{{{
+set termguicolors
+syntax enable
+colorscheme dracula
 "}}}
 
 " GENERAL BEHAVIOUR {{{
