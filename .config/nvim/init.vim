@@ -2,9 +2,9 @@
 " Check For Plug {{{
 " automated installation of vimplug if not installed
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-	silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
+        silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+                                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
 endif
 " }}}
 
@@ -68,6 +68,8 @@ nnoremap <silent> <space>e :<C-u>CocList extensions<cr>
 map <silent> ; :Files<CR>
 nmap <silent> <space>w :W<cr>
 " }}}
+
+
 " NERDTREE Bindings{{{
 nnoremap <C-t> :NERDTreeToggle <CR>
 nnoremap <C-f> :NERDTreeFind <CR>
@@ -84,16 +86,16 @@ let g:airline_theme='alduin'
 " WINDOWS {{{
 " Window Splitting
 function! WinMove(key)
-	let t:curwin = winnr()
-	exec "wincmd ".a:key
-	if (t:curwin == winnr())
-		if (match(a:key,'[jk]'))
-			wincmd v
-		else
-			wincmd s
-		endif
-		exec "wincmd ".a:key
-	endif
+        let t:curwin = winnr()
+        exec "wincmd ".a:key
+        if (t:curwin == winnr())
+                if (match(a:key,'[jk]'))
+                        wincmd v
+                else
+                        wincmd s
+                endif
+                exec "wincmd ".a:key
+        endif
 endfunction
 
 "create a window leftright
@@ -114,22 +116,33 @@ nnoremap <silent> H :tabprevious<CR>
 nnoremap <silent> L :tabnext<CR>
 "}}}
 
-" PMENU_COC_COLOURS {{{
-" a bit useless once I've set a theme.
-""" Customize colors
-"func! s:my_colors_setup() abort
-"    " this is an example
-"    hi Pmenu guibg=#d7e5dc gui=NONE
-"    hi PmenuSel guibg=#b7c7b7 gui=NONE
-"    hi PmenuSbar guibg=#bcbcbc
-"    hi PmenuThumb guibg=#585858
-"endfunc
-"
-"augroup colorscheme_coc_setup | au!
-"    au ColorScheme * call s:my_colors_setup()
-"augroup END
+" Remap ç to act like semicolon (no shift in spanish layout :D)
+nnoremap ç :
 
-" }}}
+" Remap ´ to save
+nnoremap ´ :w <CR>
+
+" Center the cursor vertically when moving to the next word during a search.
+nnoremap n nzz
+nnoremap N Nzz
+
+"double tap ñ to exit insert mode
+inoremap ññ <ESC>
+
+" open :GFiles with ¡
+" nnoremap ¡ :GFiles <CR>
+
+" Bind GFiles to ¡ if possible, fall back to Files
+silent! !git rev-parse --is-inside-work-tree
+if v:shell_error == 0
+  nnoremap <silent>¡ :GFiles --cached --others --exclude-standard<CR>
+else
+  nnoremap <silent>¡ :Files<CR>
+endif
+
+" Get a list of open buffers with FZF
+nnoremap <silent> <space><space> :Buffers<CR>
+
 
 " THEME SETTINGS{{{
 set termguicolors
