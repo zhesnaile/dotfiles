@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 if [ -z "$1" ] || [ -z "$2" ]; then
     find -type f -exec md5sum '{}' \;

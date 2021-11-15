@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+if [ $# != 1 ]; then echo Too many arguments; return 1; fi
+target="${1%.zip}"
+unzip "$1" -d "${target##*/}"

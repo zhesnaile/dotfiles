@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+echo "UPDATING LOCAL PIP PACKAGES\n";
+
+pip freeze --user | awk -F'=' '{print $1}' | xargs -n1 -P0 pip install -U
+
+echo "\nDONE";

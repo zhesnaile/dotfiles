@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 shopt -s nullglob
 for g in /sys/kernel/iommu_groups/*; do
     echo "IOMMU Group ${g##*/}:"

@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 #check for sudo permissions
 if [ $(id -u) != 0 ]; then
