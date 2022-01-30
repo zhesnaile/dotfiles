@@ -1,0 +1,10 @@
+#####	GOLANG		#####
+export GOPATH="$HOME/.local/langs/go"
+export PATH="$PATH:$GOPATH/bin"
+export GOPATH="$GOPATH:$HOME/Code/Go"
+
+#####	NODE.JS		#####
+export NPM_CONFIG_PREFIX="$HOME/.local/langs/npm-global"
+
+#####	RUST		#####
+export CARGO_HOME="$HOME/.local/langs/cargo"

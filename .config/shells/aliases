@@ -5,8 +5,8 @@ alias ip='ip -color=auto'
 alias ls='ls --color=auto'
 
 # Common aliases
-alias ll='ls -l'
-alias la='ls -A'
+alias ll='ls -lh'
+alias la='ls -lah'
 alias l='ll'
 
 # Destroy the Child
@@ -31,6 +31,7 @@ fi
 # nvim -> vim
 if command -v nvim >/dev/null; then
   alias vim="$(which nvim)"
+  alias vi="$(which nvim)"
 fi
 
 # lock screen
