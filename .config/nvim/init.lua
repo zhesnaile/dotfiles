@@ -54,7 +54,7 @@ require('lsp_settings')
 	-- use '¡' to open :GFiles if in a git project, otherwise fallback to :Files
 	nnoremap('¡',
 	(function ()
-		vim.cmd([[silent! !git rev-parse --is-inside-work-tree]])
+		vim.cmd([[silent! !git rev-parse --is-inside-work-tree]]);
 		return (vim.v.shell_error == 0 and ':GFiles --cached --others --exclude-standard<cr>') or ':Files<cr>'
 	end)())
 
