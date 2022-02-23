@@ -35,7 +35,6 @@ local function inoremap(shortcut, command, opts)
 	noremap('i', shortcut, command, opts)
 end
 -- }}}
-
 -- Plugin Config {{{
 
 -- Bootstrap packer and install plugins.
@@ -45,23 +44,24 @@ require('plugins')
 -- Self explanatory, LSP Config using nvim-lsp-installer
 require('lsp_settings')
 
---FZF BINDINGS {{{
+-- FZF BINDINGS {{{
 	-- Show fzf Files when ; is pressed
 	nnoremap(';', ':Files<cr>')
 	-- show all open windows/buffers with fzf
 	nnoremap('<space>w', ':W<cr>')
 
 	-- use '¡' to open :GFiles if in a git project, otherwise fallback to :Files
-	nnoremap('¡',
-	(function ()
-		vim.cmd([[silent! !git rev-parse --is-inside-work-tree]]);
-		return (vim.v.shell_error == 0 and ':GFiles --cached --others --exclude-standard<cr>') or ':Files<cr>'
-	end)())
+	local function not_a_bang()
+		vim.cmd([[silent! !git rev-parse --is-inside-work-tree]])
+		local result = (vim.v.shell_error == 0 and ':GFiles --cached --others --exclude-standard<cr>') or ':Files<cr>'
+		return result
+	end
+	nnoremap('¡', not_a_bang() )
 
 	-- Double space to get a list of Buffers.
 	nnoremap('<space><space>', ':Buffers<cr>')
 
---}}}
+-- }}}
 
 -- AIRLINE THEME {{{
 	vim.g['airline_powerlinefonts']=1
@@ -72,6 +72,24 @@ require('lsp_settings')
 --}}} END OF PLUGIN RELATED SETTINGS
 -- "vanilla" vim bindings {{{
 	-- Windows {{{
+	-- TODO: Find a workaround to avoid a global function.
+	function win_move(key)
+	  local curr_win = vim.api.nvim_get_current_win()
+	  vim.api.nvim_command("wincmd " .. key)
+	  if curr_win == vim.api.nvim_get_current_win() then
+	    if key == 'j' or key == 'k' then
+	      vim.api.nvim_command("wincmd s")
+	    else
+	      vim.api.nvim_command("wincmd v")
+	    end
+	  vim.api.nvim_command("wincmd "..key)
+	  end
+	end
+
+	nnoremap('<C-h>', ':lua win_move(\'h\')<cr>')
+	nnoremap('<C-j>', ':lua win_move(\'j\')<cr>')
+	nnoremap('<C-k>', ':lua win_move(\'k\')<cr>')
+	nnoremap('<C-l>', ':lua win_move(\'l\')<cr>')
 	-- }}}
 
 	-- Tabs and Bindings {{{
