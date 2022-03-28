@@ -27,9 +27,10 @@ return require('packer').startup(function(use)
     -- Nerdcommenter: Commenting tools/shortcuts.
     use 'preservim/nerdcommenter'
     -- Devicons: icons
-    use 'ryanoasis/vim-devicons'
+    -- use 'ryanoasis/vim-devicons'
     -- Airline: pretty
-    use {'vim-airline/vim-airline-themes', requires = {'vim-airline/vim-airline'} }
+    -- use {'vim-airline/vim-airline-themes', requires = {'vim-airline/vim-airline'} }
+    use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
     -- LSPConfig presets
     use 'neovim/nvim-lspconfig'
     -- easy installer for LSPs

@@ -43,7 +43,8 @@ require('plugins')
 
 -- Self explanatory, LSP Config using nvim-lsp-installer
 require('lsp_settings')
-
+-- LUALINE
+require('lualine').setup()
 -- FZF BINDINGS {{{
 	-- Show fzf Files when ; is pressed
 	nnoremap(';', ':Files<cr>')
@@ -63,11 +64,11 @@ require('lsp_settings')
 
 -- }}}
 
--- AIRLINE THEME {{{
-	vim.g['airline_powerlinefonts']=1
-	vim.g['airline#extensions#tabline#enabled']=1
-	vim.g['airline_theme']='alduin'
---}}}
+-- -- AIRLINE THEME {{{
+-- 	vim.g['airline_powerlinefonts']=1
+-- 	vim.g['airline#extensions#tabline#enabled']=1
+-- 	vim.g['airline_theme']='alduin'
+-- --}}}
 
 --}}} END OF PLUGIN RELATED SETTINGS
 -- "vanilla" vim bindings {{{
