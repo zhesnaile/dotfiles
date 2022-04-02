@@ -6,7 +6,7 @@ Includes config files for:
 
  - Jonaburg's fork of [Picom](https://github.com/jonaburg/picom)
 
- - Neovim using [vim-plug](https://github.com/junegunn/vim-plug) (needs npm)
+ - Neovim using [packer](https://github.com/wbthomason/packer.nvim)
 
  - [Kitty](https://sw.kovidgoyal.net/kitty/)
 
