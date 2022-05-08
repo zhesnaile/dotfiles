@@ -73,6 +73,7 @@ ZSH_THEME="zshred"
 plugins=(
 	git
 )
+
 for i in "${links[@]}"
 do
 	plugins+="$(awk -F'/' '{print $NF}' <<<"$i")"
@@ -89,4 +90,10 @@ fi
 # exports
 if [ -f ~/.config/shells/exports ]; then
 	. ~/.config/shells/exports
+fi
+
+# Add fzf keyboard shortcuts on Fedora.
+if [ -x "$(command -v fzf)"  ]
+then
+	source /usr/share/fzf/shell/key-bindings.zsh
 fi
