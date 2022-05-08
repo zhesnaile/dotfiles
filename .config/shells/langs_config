@@ -1,10 +1,21 @@
 #####	GOLANG		#####
-export GOPATH="$HOME/.local/langs/go"
-export PATH="$PATH:$GOPATH/bin"
-export GOPATH="$GOPATH:$HOME/Code/Go"
+if [ -x "$(command -v go)"  ]; then
+    export GOPATH="$HOME/.local/langs/go"
+    export PATH="$PATH:$GOPATH/bin"
+    export GOPATH="$GOPATH:$HOME/Code/Go"
+fi
 
 #####	NODE.JS		#####
-export NPM_CONFIG_PREFIX="$HOME/.local/langs/npm-global"
+if [ -x "$(command -v npm)"  ]; then
+    export NPM_CONFIG_PREFIX="$HOME/.local/langs/npm-global"
+fi
 
 #####	RUST		#####
-export CARGO_HOME="$HOME/.local/langs/cargo"
+if [ -x "$(command -v cargo)"  ]; then
+    export CARGO_HOME="$HOME/.local/langs/cargo"
+fi
+
+#####   RUBY		####
+if [ -x "$(command -v irb)"  ]; then
+    export PATH="$PATH:$HOME/.gem/ruby/3.0.0/bin"
+fi
