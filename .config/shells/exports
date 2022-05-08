@@ -6,4 +6,4 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export TERM="xterm-256color"
 export CURS="$HOME/Documents/Assig/Cursant"
 export WEEBDIR="$HOME/Videos/Nyaa"
-. ~/.config/shells/langs_config
+. $HOME/.config/shells/langs_config
