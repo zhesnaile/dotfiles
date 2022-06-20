@@ -34,7 +34,7 @@
   :ensure t)
 (use-package dracula-theme
   :ensure t)
-}}
+;;}}}
 
 ;; THEME
 (load-theme 'dracula t)
