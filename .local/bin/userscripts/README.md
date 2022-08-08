@@ -1,16 +1,16 @@
 # Userscripts
 
-A collection of personal scripts with a variant degree of use.
+A collection of personal scripts. Most of them could arguably just be aliases.
 
- * **decodesixtyfour**: decode a string of base64 directly, mainly useful for CTFs
+* **decodesixtyfour**: decode a string of base64 directly, mainly useful for CTFs
 
- * **dottovpn.sh** and **vpntodot.sh**: scripts to change between two DNS due to past issues with network manager
+* **dottovpn.sh** and **vpntodot.sh**: scripts to change between two DNS due to past issues with network manager. Intended to avoid DNSLeak when using a VPN.
 
- * **hashmeout.py**: python script to get 4 Hashes out of one file. (md5, SHA1, SHA256, SHA512) 
+* **hashmeout.py**: python script to get 4 Hashes out of one file. (md5, SHA1, SHA256, SHA512) 
 
- * **list**\***.sh**: scripts for listing PCI devices reset capabilites and IOMMU and USB goupings
+* **list**\***.sh**: scripts for listing PCI devices reset capabilites, IOMMU and USB goupings.
 
- * **mymd5recursion**: recurses into directories, use flag "-o [output-file]" to write to a file.
+* **mymd5recursion**: md5sum but recurses into directories, use flag "-o [output-file]" to write to a file.
 
 * **painseeker**: prints all C style comments in a file; I just wanted to have fun with some unreadable regex/perl stuff.
 
