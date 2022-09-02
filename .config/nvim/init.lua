@@ -121,12 +121,12 @@ require('lualine').setup()
 	vim.cmd('colorscheme dracula')
 	vim.g.colorcolumn=81
 	-- }}}
-	vim.o.expandtab = false
+	vim.o.expandtab = true
 	vim.o.shiftround = true
-	vim.o.smartindent = true
-	vim.o.autoindent = true
+	--vim.o.smartindent = true
+	--vim.o.autoindent = true
 
-	vim.o.softtabstop = 4
+	--vim.o.softtabstop = 8
 	vim.o.tabstop = 4
 	vim.o.shiftwidth = 4
 
