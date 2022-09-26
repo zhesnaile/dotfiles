@@ -28,13 +28,12 @@ return require('packer').startup(function(use)
     use 'preservim/nerdcommenter'
     -- Devicons: icons
     -- use 'ryanoasis/vim-devicons'
-    -- Airline: pretty
-    -- use {'vim-airline/vim-airline-themes', requires = {'vim-airline/vim-airline'} }
     use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
     -- LSPConfig presets
     use 'neovim/nvim-lspconfig'
     -- easy installer for LSPs
-    use 'williamboman/nvim-lsp-installer'
+    use { "williamboman/mason.nvim" }
+    use { "williamboman/mason-lspconfig.nvim" }
     --nvim-cmp: autocompletion
     use {'hrsh7th/nvim-cmp', requires = {
 	    'hrsh7th/cmp-nvim-lsp',

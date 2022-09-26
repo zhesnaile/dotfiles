@@ -43,8 +43,10 @@ require('plugins')
 
 -- Self explanatory, LSP Config using nvim-lsp-installer
 require('lsp_settings')
+
 -- LUALINE
 require('lualine').setup()
+
 -- FZF BINDINGS {{{
 	-- Show fzf Files when ; is pressed
 	nnoremap(';', ':Files<cr>')
