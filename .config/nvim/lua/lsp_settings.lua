@@ -99,7 +99,6 @@ require('lspconfig')['sumneko_lua'].setup {
   },
 }
 
-require('lspconfig')['asm_lsp'].setup{}
 require('lspconfig')['clangd'].setup{}
 
 -- }}}
