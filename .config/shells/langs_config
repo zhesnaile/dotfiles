@@ -13,6 +13,7 @@ fi
 #####	RUST		#####
 if [ -x "$(command -v cargo)"  ]; then
     export CARGO_HOME="$HOME/.local/langs/cargo"
+    export PATH="$PATH:$CARGO_HOME/bin"
 fi
 
 #####   RUBY		####
