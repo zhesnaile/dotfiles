@@ -8,6 +8,7 @@ fi
 #####	NODE.JS		#####
 if [ -x "$(command -v npm)"  ]; then
     export NPM_CONFIG_PREFIX="$HOME/.local/langs/npm-global"
+    export PATH="$PATH:$NPM_CONFIG_PREFIX/bin"
 fi
 
 #####	RUST		#####
