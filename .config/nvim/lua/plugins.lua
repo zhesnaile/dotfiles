@@ -22,12 +22,7 @@ return require('packer').startup(function(use)
     use 'junegunn/fzf.vim'
     -- Auto Pairs: Insert or delete brackets, parens, quotes in pair.
     use 'jiangmiao/auto-pairs'
-    -- VimSandwich: edit the surroundings of a sandwiched textobject.
-    use 'machakann/vim-sandwich'
-    -- Nerdcommenter: Commenting tools/shortcuts.
-    use 'preservim/nerdcommenter'
-    -- Devicons: icons
-    -- use 'ryanoasis/vim-devicons'
+    -- Lualine
     use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
     -- LSPConfig presets
     use 'neovim/nvim-lspconfig'

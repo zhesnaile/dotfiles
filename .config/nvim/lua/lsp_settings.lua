@@ -75,7 +75,7 @@ require('lspconfig')['rust_analyzer'].setup{
     --capabilities = capabilities,
 }
 
-require('lspconfig')['sumneko_lua'].setup {
+require('lspconfig')['lua_ls'].setup {
   --capabilities = capabilities,
   settings = {
     Lua = {
@@ -100,13 +100,17 @@ require('lspconfig')['sumneko_lua'].setup {
 }
 
 require('lspconfig')['clangd'].setup{}
-
+require('lspconfig')['hls'].setup{}
+require('lspconfig')['pyright'].setup{}
+require('lspconfig')['bashls'].setup{}
+require('lspconfig')['tsserver'].setup{}
+require('lspconfig')['denols'].setup{}
 -- }}}
 
 -- MASON {{{
 local mason = require("mason").setup()
 local mason_lspconfig = require("mason-lspconfig").setup({
-  ensure_installed = { "sumneko_lua", "rust_analyzer", "clangd" }
+  ensure_installed = { "lua_ls", "rust_analyzer", "clangd", 'pyright', 'tsserver'}
 })
 
 --}}}
